@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cYk-zp-Dsh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
@@ -10,21 +10,40 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
+                        <label alignment="center" text="Level: 1" textAlignment="center" id="KWa-6c-4L9">
+                            <fontDescription key="font" type="system" pointSize="12"/>
+                        </label>
                         <button width="1" alignment="left" title="Smash!" id="KU8-qS-FJm">
                             <connections>
                                 <action selector="smashAction" destination="AgC-eL-Hgc" id="Hyl-dv-w4n"/>
                             </connections>
                         </button>
-                        <imageView width="136" height="2" alignment="left" id="Fhp-lq-jZy"/>
                         <imageView width="150" height="150" alignment="left" image="gopher" contentMode="scaleAspectFill" id="QFd-H3-ZLS"/>
                     </items>
                     <connections>
                         <outlet property="gopherImage" destination="QFd-H3-ZLS" id="qfa-9R-hjk"/>
-                        <outlet property="spacerImage" destination="Fhp-lq-jZy" id="7hr-Wf-ACR"/>
+                        <outlet property="levelLabel" destination="KWa-6c-4L9" id="4dE-a9-io8"/>
+                        <outlet property="smashButton" destination="KU8-qS-FJm" id="FfL-bt-Ty3"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="344"/>
+            <point key="canvasLocation" x="220" y="283.75"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="vFu-wK-TJD">
+            <objects>
+                <controller id="cYk-zp-Dsh">
+                    <items>
+                        <label alignment="center" text="Smash the Gopher when it appears!" textAlignment="center" numberOfLines="2" id="laV-ed-07y"/>
+                        <button width="1" alignment="left" title="Start" id="Vzc-P1-sx1">
+                            <connections>
+                                <segue destination="AgC-eL-Hgc" kind="push" id="HD5-BN-Ji4"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="3" y="283"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
