@@ -22,6 +22,7 @@
 static CGFloat kMinGopherHeight = 0.1f;
 static CGFloat kGrowHeight = 2;
 static CGFloat kMaxGopherHeight = 150;
+static CGFloat kGopherTime = 1;
 
 @implementation InterfaceController
 
@@ -33,7 +34,11 @@ static CGFloat kMaxGopherHeight = 150;
 	self.origImageHeight = kMaxGopherHeight;
 	self.gopherHeight = kMinGopherHeight;
 	[self.gopherImage setHeight:kMinGopherHeight];
-	self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(gopherTimer:) userInfo:nil repeats:YES];
+	self.timer = [NSTimer scheduledTimerWithTimeInterval:kGopherTime
+												  target:self
+												selector:@selector(gopherTimer:)
+												userInfo:nil
+												 repeats:YES];
 }
 
 - (void)willActivate {
@@ -50,7 +55,7 @@ static CGFloat kMaxGopherHeight = 150;
 
 - (void)gopherTimer:(NSTimer*)timer
 {
-	NSLog(@"gopherTimer");
+//	NSLog(@"gopherTimer");
 	
 	self.gopherHeight -= kGrowHeight;
 	
@@ -67,21 +72,12 @@ static CGFloat kMaxGopherHeight = 150;
 }
 
 - (IBAction)smashAction {
-	
-	NSLog(@"smash");
-	
 	self.gopherHeight += kGrowHeight;
 	
 	[self verifyGopherHeight];
 	
 	[self.spacerImage setHeight:self.gopherHeight];
 }
-
-- (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex
-{
-	NSLog(@"didSelectRowAtIndex %ld", (long)rowIndex);
-}
-
 
 @end
 
